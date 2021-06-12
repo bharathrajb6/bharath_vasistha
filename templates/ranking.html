@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rankings</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/b4d8eec482.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
+</head>
+<style>
+	*{transition:all 0.5s ease-in-out;}
+	body{
+		background:url(https://gray-kktv-prod.cdn.arcpublishing.com/resizer/ouuwilsnEUB4xU--eQSJjU56QCo=/1200x675/smart/cloudfront-us-east-1.images.arcpublishing.com/gray/JIERBDOOHRLE3NRESRU2C5TKHA.jpg) no-repeat;
+		background-size:cover;
+		background-position:fixed;
+
+		font-family: 'Padauk',sans-serif;
+	}
+	h1{
+		margin-top:25px;
+		font-size:45px;
+		font-weight: 700;
+		color:black;
+	}
+	.table-box{
+		margin:30px 250px 0px 250px;
+		height: 800px;
+		padding-top:20px;
+	}
+	h2{
+		 color:white;
+		font-family: 'Bungee Outline', cursive;
+font-family: 'Playfair Display', serif;
+		font-size:25px;
+    margin-bottom:50px;
+    text-align: center;
+
+	}
+
+	td,th{
+		font-size:20px;
+	}
+	.head{
+		background:url(https://lh3.googleusercontent.com/proxy/5P0pOCngQFyn7nCrFB24LUSBz_k7RLxm_PEfZbwEKmg5VoFQUhjRl9JkCTFj4H9svDEn2yCIQ5J5uNDONWtG1ReMTAbzZfeeqi5pnn7kh2WLHLI7ZQmhofTsgZi0GmVL_zdcX_g54g4kNvf3YMqgYirVaMr2VQ) no-repeat;
+		background-size: cover;
+	}
+	i{
+		padding:0px 6px;
+    color: white;
+	}
+  th{
+    color:#DC7633;
+
+  }
+</style>
+<body>
+<h1><center>Rankings</center></h1>
+<div class="head">
+<div class="table-box">
+<table class="table table-dark">
+	<h2><i class="fas fa-globe"></i>Golf Ranking</h2>
+
+   <thead>
+    <th>Rank.NO</th>
+    <th>Name</th>
+    <th>Nationality</th>
+    <th>Average</th>
+
+  </thead>
+<tbody>
+{% for i in data%}
+<tr>
+<td>{{ forloop.counter}}</td>
+<td>{{i.player.player_name}}</td>
+<td>{{i.player.nationality}}</td>
+<td>{{i}}</td>
+
+    </tr>
+{% endfor %}
+</tbody>
+
+
+</table>
+</div>
+</div>
+</body>
+</html>

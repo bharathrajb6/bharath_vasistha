@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add LiveScore</title>
+    	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/b4d8eec482.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
+    <style>
+    body{
+
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background: url(https://c4.wallpaperflare.com/wallpaper/9/760/1018/5bd013ad768ca-wallpaper-preview.jpg) no-repeat;
+			background-size: cover;
+			background-repeat: no-repeat;
+            background-attachment: fixed;
+
+    }
+        .btn{
+			border: 1px solid black;
+			background:none;
+			width:100%;
+
+			font-size:20px;
+			padding:10px 10px;
+			color:black;
+			cursor: pointer;
+			border-radius: 25px;
+			outline:none;
+			float:left;
+
+		}
+
+		.container{
+			width:320px;
+			position:absolute;
+			top:50%;
+			left:40%;
+			transform: translate(-50%,-50%);
+			color:white;
+
+		}
+		.container h2{
+
+			border-bottom: 8px solid #4caf50;
+			font-size: 40px;
+			margin-bottom: 50px;
+			padding: 13px 0px;
+			color:black;
+
+
+		}
+
+		.btn:hover{
+			background:#4caf50;
+		}
+
+		.text-box{
+			width: 100%;
+			overflow: hidden;
+			font-size: 20px;
+			margin:20px 0px;
+			padding: 8px 0px;
+			border-bottom: 1px solid #58D68D;
+		}
+		.text-box i{
+			width:35px;
+			text-align: center;
+			float: left;
+		}
+		.text-box input{
+			border: none;
+			outline: none;
+
+			background-color:black;
+			color: black;
+				background: none;
+			font-size:20px;
+			margin-top: 10px 10px;
+			width:80%;
+			float:left;
+		}
+
+		.mess p{
+margin-top:20px;
+        color:black;
+        font-size:20px;
+
+
+		font-style:italic;
+		}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Add Livescore</h2>
+<form action="add_live" method="POST">
+    {% csrf_token %}
+
+
+    <select class="form-select" aria-label="Default select example" name="team" id="2" required>
+  <option disabled>Select Team</option>
+         {% for i in team %}
+ <option>{{i}}</option>
+
+          {% endfor %}
+</select>
+
+    <br><br>
+
+    <select class="form-select" aria-label="Default select example" name="player" id="1" required>
+  <option disabled>Select Player</option>
+         {% for i in data  %}
+  <option>{{i.player_name}}</option>
+
+          {% endfor%}
+</select>
+
+
+	<!--<div class='text-box'>
+	    <i class="fas fa-flag"></i>
+			<input type="number" name="par" placeholder='Par' >
+		</div>-->
+    <div class='text-box'>
+			<i class="fas fa-golf-ball"></i>
+			<input type="number" name="hole1" placeholder='Hole1' >
+		</div>
+      <div class='text-box'>
+			<i class="fas fa-golf-ball"></i>
+			<input type="number" name="hole2" placeholder='Hole2' >
+		</div>
+      <div class='text-box'>
+			<i class="fas fa-golf-ball"></i>
+			<input type="number" name="hole3" placeholder='Hole3' >
+		</div>
+      <div class='text-box'>
+			<i class="fas fa-golf-ball"></i>
+			<input type="number" name="hole4" placeholder='Hole4' >
+		</div>
+
+
+
+<button type="submit" class="btn">SUBMIT</button>
+
+
+</form>
+
+<br>   <br>
+ <div class="mess">
+
+		{% for message in messages %}
+		<p>{{message}}</p>
+		{% endfor %}
+	</div>
+     </div>
+</body>
+</html>

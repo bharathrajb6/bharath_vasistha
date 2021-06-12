@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Admin Login
+	</title>
+	<script src="https://kit.fontawesome.com/c40f30cd77.js" crossorigin="anonymous"></script>
+	<style>
+
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background: url(https://www.yalgaar.io/Content/themes/Admin/img/login_full_bg.jpg) no-repeat;
+			background-size: cover;
+			background-repeat: no-repeat;
+            background-attachment: fixed;
+		}
+		.container{
+			width:300px;
+			position:absolute;
+			top:40%;
+			left:60%;
+			transform: translate(-50%,-50%);
+			color:white;
+
+		}
+		.container h1{
+
+			border-bottom: 8px solid #4caf50;
+			font-size: 40px;
+			margin-bottom: 50px;
+			padding: 13px 0px;
+
+
+		}
+		.text-box{
+			width: 100%;
+			overflow: hidden;
+			font-size: 20px;
+			margin:20px 0px;
+			padding: 8px 0px;
+			border-bottom: 1px solid #58D68D;
+		}
+		.text-box i{
+			width:35px;
+			text-align: center;
+			float: left;
+		}
+		.text-box input{
+			border: none;
+			outline: none;
+
+			background-color:black;
+			color: white;
+				background: none;
+			font-size:20px;
+			margin-top: 10px 10px;
+			width:80%;
+			float:left;
+		}
+		.btn{
+			border: 1px solid #28B463;
+			background:none;
+			width:40%;
+
+			font-size:20px;
+			padding:10px 10px;
+			color:white;
+			cursor: pointer;
+			border-radius: 25px;
+			outline:none;
+			float:left;
+
+		}
+		.btn1{
+			border: 1px solid #28B463;
+			background:none;
+			width:40%;
+
+
+			font-size:20px;
+			padding:10px;
+			color:white;
+			cursor: pointer;
+			border-radius: 25px;
+			outline:none;
+			margin-left:60px;
+			float:right;
+
+		}
+		.btn:hover,.btn1:hover{
+			background:#4caf50;
+		}
+
+		a{
+			text-decoration: none;
+			cursor: pointer;
+			color:white;
+		}
+
+
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1>Admin Page</h1>
+	<form action="admins" method="POST">
+		{% csrf_token %}
+		<!--<div class='text-box'>
+			<i class="fas fa-envelope-open"></i>
+			<input type="email" name="email" placeholder='E-mail' required>
+		</div>-->
+
+        <div class='text-box'>
+			<i class="far fa-user"></i>
+			<input type="text" name="username" placeholder='Username' required>
+		</div>
+		<div class='text-box'>
+			<i class="fas fa-lock"></i>
+			<input type="Password" name="password" placeholder='Password' required>
+		</div>
+
+	<button type="submit" class="btn">LOGIN</button>
+
+</form>
+
+		<div class="footer">
+
+			<button type="button" class="btn1"><a href="login">BACK</a></button>
+		</div>
+
+
+	<br><br>
+	<div class="mess">
+		{% for message in messages %}
+		<h3>{{message}}</h3>
+		{% endfor %}
+	</div>
+
+
+</div>
+
+</body>
+</html>

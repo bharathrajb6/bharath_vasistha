@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Forgot Password
+	</title>
+	<script src="https://kit.fontawesome.com/c40f30cd77.js" crossorigin="anonymous"></script>
+	<style>
+
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background: url(https://i.pinimg.com/originals/9e/0f/b4/9e0fb4c92cc13d84df2f54501f6db60c.jpg) no-repeat;
+			background-size: cover;
+			background-repeat: no-repeat;
+  background-attachment: fixed;
+
+		}
+		.container{
+			width:350px;
+			position:absolute;
+			top:50%;
+			left:60%;
+			transform: translate(-50%,-50%);
+			color:white;
+
+		}
+		.container h1{
+
+			border-bottom: 8px solid #4caf50;
+			font-size: 40px;
+			margin-bottom: 50px;
+			padding: 13px 0px;
+
+
+		}
+		.text-box{
+			width: 100%;
+			overflow: hidden;
+			font-size: 20px;
+			margin:20px 0px;
+			padding: 8px 0px;
+			border-bottom: 1px solid #58D68D;
+		}
+		.text-box i{
+			width:26px;
+			text-align: center;
+			float: left;
+			padding:0px 5px;
+		}
+		.text-box input{
+			border: none;
+			outline: none;
+			background: none;
+			color: white;
+			font-size:20px;
+			margin-top: 0px 10px;
+			width:80%;
+			float:left;
+		}
+
+
+		.btn{
+
+
+			border: 1px solid #28B463;
+			background:none;
+			width:100%;
+			font-size:20px;
+			padding:5px 90px 5px 90px;
+			color:white;
+			cursor: pointer;
+			border-radius: 25px;
+			outline:none;
+
+		}
+		.btn:hover{
+			background:#DC7633;
+
+		}
+
+		.footer p{
+			font-size:23px;
+			width:100%;
+			color:white;
+
+		}
+		a{
+			text-decoration: none;
+			cursor: pointer;
+			color:black;
+
+
+		}
+		h3{
+		color:black;
+
+		}
+		.mess h3
+		{
+		color:black;
+		text-align:left;
+		font-size:25px;
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1>Reset Password</h1>
+	<form action="forgot" method="POST">
+		{% csrf_token %}
+
+
+		<div class='text-box'>
+		<i class="fas fa-envelope-open"></i>
+			<input type="email" name="email" placeholder='E-mail' required>
+		</div>
+
+		<div class='text-box'>
+			<i class="far fa-user"></i>
+			<input type="text" name="username" placeholder='Username' required>
+		</div>
+
+<div class='text-box'>
+			<i class="fas fa-lock"></i>
+			<input type="Password" name="password1" placeholder='Password' required>
+		</div>
+
+		<div class='text-box'>
+			<i class="fas fa-lock"></i>
+			<input type="Password" name="password2" placeholder='Confirm Password' required>
+		</div>
+
+
+		<input class="btn" type="submit">
+		</form>
+
+
+
+	<br><br>
+	<div class="mess">
+		{% for message in messages %}
+		<center><h3>{{message}}</h3></center>
+		{% endfor %}
+	</div>
+
+
+</div>
+
+</body>
+</html>

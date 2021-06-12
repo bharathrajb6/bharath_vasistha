@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TEAM</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/b4d8eec482.js" crossorigin="anonymous"></script>
+</head>
+<style>
+	*{transition:all 0.5s ease-in-out;}
+	body{
+		background: url(https://c4.wallpaperflare.com/wallpaper/9/760/1018/5bd013ad768ca-wallpaper-preview.jpg) no-repeat;
+
+        background-attachment: fixed;
+        background-size:cover;
+
+		font-family: 'Padauk',sans-serif;
+	}
+	h1{
+		margin-top:25px;
+		font-size:45px;
+		font-weight: 700;
+		color:white;
+	}
+	.table-box{
+
+
+		padding-top:20px;
+	}
+	h2{
+		color:white;
+		font-family:sans-serif;
+		font-size:25px;
+
+	}
+	td,th{
+
+		font-size:20px;
+	}
+	.head{
+        margin: 30px 250px 50px 250px;
+		background:url(g4.jpg) no-repeat;
+		background-size: cover;
+	}
+	i{
+		padding:0px 6px;
+	}
+	h1{
+	color:black;
+	}
+</style>
+<body>
+<center>
+<h1>Players</h1>
+<div class="head">
+<div class="table-box">
+<table class="table table-dark table-striped">
+<tr>
+    <th>Team Name</th>
+    <th>Player Name</th>
+    <th>Gender</th>
+     <th>Nationality</th>
+     <th>Total Matches</th>
+     <th></th>
+
+
+</tr>
+{% for i in data %}
+  <tr>
+
+    <td>{{i.teams.team_name}}</td>
+      <td>{{i.player_name}}</td>
+
+       <td>{{i.gender}}</td>
+       <td>{{i.nationality}}</td>
+       <td>{{i.total_matches}}</td>
+
+
+
+
+
+      <td><a href="delete_player">Delete</a></td>
+
+
+
+
+
+  </tr>
+    {% endfor %}
+
+
+</table>
+
+</div>
+
+ <div class="mess">
+
+		{% for message in messages %}
+		<p>{{message}}</p>
+		{% endfor %}
+	</div>
+     </div>
+</div>
+    </center>
+</body>
+</html>
